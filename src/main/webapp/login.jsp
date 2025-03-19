@@ -15,6 +15,7 @@
         background-color: #fff; /* White background */
     }
     .login-container {
+    	
         background: white;
         padding: 30px;
         border-radius: 15px;
@@ -47,6 +48,7 @@
         font-size: 16px;
         outline: none;
         transition: border 0.3s;
+        
     }
     .login-container input:focus {
         border-color: #6a11cb;

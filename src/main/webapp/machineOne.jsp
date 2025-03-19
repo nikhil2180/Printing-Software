@@ -188,7 +188,7 @@
                             <td><%= record.getPriority() %></td>
                             <td><%= record.getDueDate() %></td>
                             <td>
-                                <form action="machine" method="post">
+                                <form action="machine" method="post" onsubmit="setTimeout(() => location.reload(), 500);">
                                     <input type="hidden" name="jobId" value="<%= record.getJobid()%>">
                                     <button type="submit" class="action-btn">Complete Task</button>
                                 </form>
@@ -210,7 +210,7 @@
         
         <!-- View Status Panel -->
 <!-- View Status Panel -->
-<div id="viewStatusPanel" class="panel">
+ <div id="viewStatusPanel" class="panel">
     <h2>View Status</h2>
     <div id="viewStatusPanelContent">
         <table>
@@ -231,7 +231,6 @@
                     List<Record> record2 = (List<Record>) request.getAttribute("status");
                     if (record2 != null && !record2.isEmpty()) {
                         for (Record record : record2) {
-                        	
                 %>
                 <tr>
                     <td><%= job1 %></td>
@@ -243,6 +242,7 @@
                 </tr>
                 
                 <%
+                
                         }
                     } else {
                 %>

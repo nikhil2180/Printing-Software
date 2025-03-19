@@ -23,7 +23,7 @@
 	
 			.sidebar {
 			    width: 200px;
-			    background-color: #333;
+			    background-color: #673AB7;
 			    color: #fff;
 			    padding-top: 20px;
 			    height: 100vh;
@@ -36,7 +36,7 @@
 	        .sidebar button {
 	            width: 100%;
 	            padding: 15px;
-	            background: #333;
+	            background: #673AB7;
 	            border: none;
 	            color: #fff;
 	            text-align: left;
@@ -176,59 +176,29 @@
 	                    subMachineDropdown.appendChild(option);
 	                });
 	                subMachineContainer.style.display = "block";
-	            } 
-	            else {
+	            } else {
 	                subMachineContainer.style.display = "none";
 	            }
 	        }
-
-	        function loadDashboard() {
-		        var selectedMachine = document.getElementById("machines").value;
-		
-		        var xhr = new XMLHttpRequest();
-		        xhr.open("POST", "dashboard", true);
-		        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		
-		        xhr.onreadystatechange = function () {
-		            if (xhr.readyState === 4 && xhr.status === 200) {
-		                document.getElementById("dashboard-content").innerHTML = xhr.responseText;
-		            }
-		        };
-		
-		        xhr.send("machines=" + encodeURIComponent(selectedMachine));
-		    }
-	</script>
-		</head>
-		<body>
+	    </script>
+	</head>
+	<body>
 	    <div class="sidebar">
-	        <h2>Manager Panel</h2>
+	        <h2>Admin Panel</h2>
 	        <button data-panel="dashboard" onclick="showPanel('dashboard')">Dashboard</button>
 	        <button data-panel="assignTaskPanel" onclick="showPanel('assignTaskPanel')">Create Job Card</button>
 	        <button data-panel="viewTasksPanel" onclick="showPanel('viewTasksPanel')">View Jobs</button>
 	        <button data-panel="manageEmployeesPanel" onclick="showPanel('manageEmployeesPanel')">Manage Machines</button>
-	        <!-- <button data-panel="reports" onclick="showPanel('reports')">Reports</button> -->
-	    </div>
+	        <button data-panel="reports" onclick="showPanel('reports')">Report</button>
+	 	</div>
 	
 	    <div class="content">
 	    
 	        <!-- Dashboard Panel -->
 	        <div id="dashboard" class="panel">
-	    <h2>Dashboard</h2>
-		 <form onsubmit="event.preventDefault(); loadDashboard();">  
-		    <div class="form-group">
-		        <select id="machines" name="machines">
-		        	<option value="" disabled selected>Select a Machine</option>
-		            <option value="machineOne">Machine One</option>
-		            <option value="machineTwo">Machine Two</option>
-		            <option value="machineThree">Machine Three</option>
-		        </select>
-		      </div>
-		        <div class="form-group">
-		            <button type="submit">Submit</button>
-		        </div>
-		    </form>
-	    <div id="dashboard-content"></div>
-		</div>
+	            <h2>Dashboard</h2>
+	            <p>Dashboard will be showing soon...</p>
+	        </div>
 	    
 	        <!-- Assign Task Panel -->
 	        <div id="assignTaskPanel" class="panel active">
@@ -240,7 +210,7 @@
 	                    <input type="text" id="client" name="client" placeholder="Enter client name" required>
 	                </div>
 	                
-	                <div class="form-group">							
+	                <div class="form-group">
 	                    <label for="client">Company:</label>
 	                    <input type="text" id="company" name="company" placeholder="Enter client name" required>
 	                </div>
@@ -270,12 +240,12 @@
 	                    </select>
 	                </div>
 	
-	                <!-- <div class="form-group" id="subMachineContainer" style="display: none;">
+	                <div class="form-group" id="subMachineContainer" style="display: none;">
 	                    <label for="subMachines">Select Sub Machine:</label>
 	                    <select id="subMachines" name="subMachine" required>
 	                        <option value="" disabled selected>Select a Sub Machine</option>
 	                    </select>
-	                </div> -->
+	                </div>
 	                
 	                <div class="form-group">
 	                    <label for="priority">Priority Level:</label>
@@ -286,11 +256,6 @@
 	                        <option value="High">High</option>
 	                        <option value="Critical">Critical</option>
 	                    </select>
-	                </div>
-	                
-	                <div class="form-group">
-	                    <label for="amount">Amount:</label>
-	                    <input type="text" id="amount" name="amount" required>
 	                </div>
 	                
 	                <div class="form-group">
@@ -354,7 +319,7 @@
 			                    </td>
 			                </tr>
 			    <%
-			        }
+			            }
 			            rs.close();
 			            ps.close();
 			            con.close();
@@ -367,9 +332,11 @@
 			        }
 			    %>
 			</tbody>
+			
 			    </table>
 			</div>
 
+	
 	       <!-- Manage Employees Panel -->
 	       <div id="manageEmployeesPanel" class="panel">
 		    <h2>Machines</h2>

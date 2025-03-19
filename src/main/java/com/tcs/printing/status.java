@@ -68,12 +68,11 @@ public class status extends HttpServlet {
             response.setContentType("text/html");
             response.getWriter().write(tableRows.toString());
         } 
-        catch (Exception e) {
+        catch (Exception e) { 	
             e.printStackTrace();
         }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Handle any POST requests here if needed.
     }
 }

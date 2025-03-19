@@ -60,6 +60,9 @@ public class LoginServlet extends HttpServlet {
                 case 4:
                     response.sendRedirect("manager.jsp");
                     break;
+                case 5:
+                	response.sendRedirect("admin.jsp");
+                	break;
                 default:
                     response.sendRedirect("login.jsp?error=InvalidMachine");
             }
